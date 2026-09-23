@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f7f1e8">
+  <title>Pre-order · Chana's Baked Goods</title>
+  <meta name="description" content="Request a pre-order from Chana's Baked Goods. One-week notice, no minimum, no payment on this site. Text 413-355-3682. Pacific Beach, San Diego.">
+  <link rel="canonical" href="https://nathanoiknine.github.io/chanas-baked-goods/order.html">
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500;1,600&family=Italianno&family=Nunito+Sans:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body data-page="order">
+  <a class="skip" href="#main">Skip to content</a>
+  <div id="site-header"></div>
+  <main id="main">
+    <div class="wrap page measure-form">
+      <noscript><p class="callout">To order, text 413-355-3682. One-week notice. No minimum. Kosher, pareve. Pacific Beach, San Diego.</p></noscript>
+      <p class="kicker">Order</p>
+      <h1 id="page-title">Place a pre-order</h1>
+      <p class="lede" id="page-intro">Tell Chana what you would like and when. She will text you to confirm the details and the price. Nothing is charged on this site.</p>
+      <p class="phone-block">Text <a class="js-phone" href="sms:+14133553682">413-355-3682</a></p>
+      <p class="hint" id="pricing-note"></p>
+      <form id="order-form" novalidate>
+        <input class="hp" name="_gotcha" tabindex="-1" autocomplete="off" aria-hidden="true">
+        <div class="form-grid two">
+          <label class="field"><span>Name</span><input name="name" id="name" autocomplete="name" data-remember required></label>
+          <label class="field"><span>Phone</span><input name="phone" id="phone" type="tel" autocomplete="tel" inputmode="tel" data-remember required></label>
+          <label class="field span-2"><span>Email</span><input name="email" id="email" type="email" autocomplete="email" inputmode="email" data-remember required></label>
+          <label class="field span-2"><span>Date wanted</span><input class="js-min-date" name="date" id="date" type="date" data-remember required><span class="hint js-date-help">Choose a day at least 7 days from today.</span></label>
+        </div>
+        <fieldset>
+          <legend>What would you like?</legend>
+          <p class="hint">Quantities are saved in checkout on this device. There is no minimum order.</p>
+          <div id="order-items"></div>
+          <p id="order-estimate" class="hint"></p>
+        </fieldset>
+        <fieldset>
+          <legend>How should this be handed off?</legend>
+          <label class="choice"><input type="radio" name="fulfillment" value="pickup" checked data-remember> Pickup in Pacific Beach</label>
+          <label class="choice"><input type="radio" name="fulfillment" value="delivery" data-remember> Delivery, if it is available nearby</label>
+          <p class="hint">Pickup is the usual plan. Delivery is limited to the Pacific Beach / San Diego area and confirmed by text.</p>
+        </fieldset>
+        <label class="field"><span>Notes <span class="optional">(optional)</span></span><textarea name="notes" id="notes" maxlength="2000" data-remember placeholder="Allergies, a short message for a cake, or anything Chana should know."></textarea></label>
+        <div id="allergen-mount"></div>
+        <div class="form-actions">
+          <button class="btn btn-primary" type="submit">Request this pre-order</button>
+          <a class="btn btn-ghost" href="checkout.html">Review in checkout</a>
+        </div>
+        <p class="hint">After you submit, text the summary to Chana. No payment is taken here.</p>
+        <p class="form-status" id="form-status" role="alert" hidden></p>
+      </form>
+      <div id="confirm" class="confirm" hidden tabindex="-1"></div>
+    </div>
+  </main>
+  <div id="site-footer"></div>
+  <script src="js/common.js"></script>
+  <script src="js/order.js"></script>
+</body>
+</html>

@@ -1,0 +1,210 @@
+{
+  "note": "Everything is pareve (non-dairy) and made with kosher ingredients. The list changes. If you want something else, send a custom request.",
+  "priceNote": "Prices are placeholders so the cart can show an estimate. Chana confirms every total by text. Custom orders are priced by message.",
+  "categories": [
+    {
+      "id": "sourdough",
+      "name": "Sourdough",
+      "summary": "Naturally leavened loaves, baked to order.",
+      "items": [
+        {
+          "id": "country-sourdough",
+          "name": "Country sourdough",
+          "description": "An everyday loaf with a crackly crust and a mild tang.",
+          "price": 12,
+          "unit": "loaf",
+          "featured": true,
+          "available": true
+        },
+        {
+          "id": "seeded-sourdough",
+          "name": "Seeded sourdough",
+          "description": "The country loaf with a seed crust. Contains sesame.",
+          "price": 14,
+          "unit": "loaf",
+          "available": true
+        },
+        {
+          "id": "small-sourdough",
+          "name": "Small sourdough",
+          "description": "A shorter loaf for a smaller table.",
+          "price": 8,
+          "unit": "loaf",
+          "available": true
+        }
+      ]
+    },
+    {
+      "id": "cookies",
+      "name": "Cookies",
+      "summary": "From-scratch cookies, sold by the dozen.",
+      "items": [
+        {
+          "id": "chocolate-chip",
+          "name": "Chocolate chip",
+          "description": "A classic chip cookie, not too sweet.",
+          "price": 16,
+          "unit": "dozen",
+          "featured": true,
+          "available": true
+        },
+        {
+          "id": "oatmeal-raisin",
+          "name": "Oatmeal raisin",
+          "description": "Chewy, with oats and raisins.",
+          "price": 16,
+          "unit": "dozen",
+          "available": true
+        },
+        {
+          "id": "chocolate-chunk",
+          "name": "Chocolate chunk",
+          "description": "Deep chocolate, still pareve. No dairy.",
+          "price": 18,
+          "unit": "dozen",
+          "available": true
+        }
+      ]
+    },
+    {
+      "id": "cookie-platters",
+      "name": "Cookie platters",
+      "summary": "An assortment for a table or a gathering. Tell Chana the mix when you order.",
+      "items": [
+        {
+          "id": "home-platter",
+          "name": "Home platter",
+          "description": "About two dozen cookies, mixed from what she is baking.",
+          "price": 34,
+          "unit": "platter",
+          "available": true
+        },
+        {
+          "id": "gathering-platter",
+          "name": "Gathering platter",
+          "description": "About four dozen cookies, mixed.",
+          "price": 62,
+          "unit": "platter",
+          "available": true
+        }
+      ]
+    },
+    {
+      "id": "cakes",
+      "name": "Cakes",
+      "summary": "Simple celebration cakes. Other flavors, sizes, and writing are custom and priced by message.",
+      "items": [
+        {
+          "id": "vanilla-cake",
+          "name": "Vanilla cake",
+          "description": "Serves about 8 to 10, finished with pareve frosting.",
+          "price": 48,
+          "unit": "cake",
+          "available": true
+        },
+        {
+          "id": "chocolate-cake",
+          "name": "Chocolate cake",
+          "description": "Serves about 8 to 10, with pareve chocolate frosting.",
+          "price": 52,
+          "unit": "cake",
+          "available": true
+        }
+      ]
+    },
+    {
+      "id": "lemon-bars",
+      "name": "Lemon bars",
+      "summary": "Bright lemon on a shortbread base.",
+      "items": [
+        {
+          "id": "lemon-bars-6",
+          "name": "Lemon bars",
+          "description": "A small box for a few people.",
+          "price": 16,
+          "unit": "box of 6",
+          "featured": true,
+          "available": true
+        },
+        {
+          "id": "lemon-bars-12",
+          "name": "Lemon bars",
+          "description": "A larger box, same bake.",
+          "price": 28,
+          "unit": "box of 12",
+          "available": true
+        }
+      ]
+    },
+    {
+      "id": "rugelach",
+      "name": "Rugelach",
+      "summary": "Flaky pareve rugelach. Fillings vary with the week.",
+      "items": [
+        {
+          "id": "rugelach-assorted",
+          "name": "Assorted rugelach",
+          "description": "A mixed box. Ask what is baking that week.",
+          "price": 22,
+          "unit": "box of 12",
+          "featured": true,
+          "available": true
+        },
+        {
+          "id": "rugelach-chocolate",
+          "name": "Chocolate rugelach",
+          "description": "Chocolate filling, still non-dairy.",
+          "price": 22,
+          "unit": "box of 12",
+          "available": true
+        }
+      ]
+    },
+    {
+      "id": "dessert-cups",
+      "name": "Dessert cups",
+      "summary": "Individual cups, layered and ready to serve.",
+      "items": [
+        {
+          "id": "crumb-cup",
+          "name": "Crumb cup",
+          "description": "A layered cup with a cookie crumb.",
+          "price": 7,
+          "unit": "cup",
+          "available": true
+        },
+        {
+          "id": "fruit-cup",
+          "name": "Fruit cup",
+          "description": "Seasonal fruit on top when it is good.",
+          "price": 8,
+          "unit": "cup",
+          "available": true
+        }
+      ]
+    },
+    {
+      "id": "pavlova",
+      "name": "Pavlova",
+      "summary": "Crisp meringue, soft in the middle, finished with fruit. No dairy.",
+      "items": [
+        {
+          "id": "pavlova-individual",
+          "name": "Individual pavlova",
+          "description": "A single serving, fruit on top.",
+          "price": 9,
+          "unit": "each",
+          "available": true
+        },
+        {
+          "id": "pavlova-sharing",
+          "name": "Sharing pavlova",
+          "description": "For a table of about 8.",
+          "price": 36,
+          "unit": "pavlova",
+          "available": true
+        }
+      ]
+    }
+  ]
+}

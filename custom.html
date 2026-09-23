@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f7f1e8">
+  <title>Custom order · Chana's Baked Goods</title>
+  <meta name="description" content="Request a custom bake from Chana's Baked Goods. Pareve, kosher ingredients, priced by text. One-week notice. Text 413-355-3682.">
+  <link rel="canonical" href="https://nathanoiknine.github.io/chanas-baked-goods/custom.html">
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500;1,600&family=Italianno&family=Nunito+Sans:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body data-page="custom">
+  <a class="skip" href="#main">Skip to content</a>
+  <div id="site-header"></div>
+  <main id="main">
+    <div class="wrap page measure-form">
+      <noscript><p class="callout">For a custom bake, text 413-355-3682. One-week notice. Pareve and kosher ingredients. Pacific Beach, San Diego.</p></noscript>
+      <p class="kicker">Special request</p>
+      <h1 id="page-title">Custom order</h1>
+      <p class="lede" id="page-intro">For a bake that is not on the menu. Tell her the occasion, the day, and what you are imagining. She replies with a price. Please allow one week.</p>
+      <p class="phone-block">Text <a class="js-phone" href="sms:+14133553682">413-355-3682</a></p>
+      <p class="hint" id="pricing-note"></p>
+      <form id="custom-form" novalidate>
+        <input class="hp" name="_gotcha" tabindex="-1" autocomplete="off" aria-hidden="true">
+        <div class="form-grid two">
+          <label class="field"><span>Name</span><input name="name" autocomplete="name" data-remember required></label>
+          <label class="field"><span>Phone</span><input name="phone" type="tel" autocomplete="tel" inputmode="tel" data-remember required></label>
+          <label class="field span-2"><span>Email</span><input name="email" type="email" autocomplete="email" inputmode="email" data-remember required></label>
+          <label class="field"><span>Occasion</span><input name="occasion" data-remember required placeholder="Birthday, Shabbat, a Tuesday"></label>
+          <label class="field"><span>Date needed</span><input class="js-min-date" name="date" type="date" data-remember required><span class="hint js-date-help">Choose a day at least 7 days from today.</span></label>
+          <label class="field span-2"><span>The bake</span><textarea name="description" maxlength="2000" required placeholder="Cake or other bake, flavors, about how many people, and any dietary notes."></textarea><span class="hint">Everything is pareve (non-dairy) and made with kosher ingredients. Mention an allergy here, and read the notice below.</span></label>
+          <label class="field span-2"><span>Inspiration <span class="optional">(optional)</span></span><textarea name="inspiration" maxlength="2000" placeholder="Colors, a flavor memory, words for a cake, or anything she should picture."></textarea></label>
+        </div>
+        <fieldset>
+          <legend>How should Chana reply?</legend>
+          <label class="choice"><input type="radio" name="contactMethod" value="text" checked> Text</label>
+          <label class="choice"><input type="radio" name="contactMethod" value="phone"> Phone call</label>
+          <label class="choice"><input type="radio" name="contactMethod" value="email"> Email</label>
+          <p class="hint">She usually follows up by text at 413-355-3682 either way.</p>
+        </fieldset>
+        <div id="allergen-mount"></div>
+        <div class="form-actions">
+          <button class="btn btn-primary" type="submit">Send custom request</button>
+        </div>
+        <p class="form-status" id="form-status" role="alert" hidden></p>
+      </form>
+      <div id="confirm" class="confirm" hidden tabindex="-1"></div>
+    </div>
+  </main>
+  <div id="site-footer"></div>
+  <script src="js/common.js"></script>
+  <script src="js/custom.js"></script>
+</body>
+</html>

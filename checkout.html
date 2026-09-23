@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f7f1e8">
+  <title>Checkout · Chana's Baked Goods</title>
+  <meta name="description" content="Review a pre-order for Chana's Baked Goods. No payment on this site. Chana confirms by text at 413-355-3682. One-week notice, no minimum.">
+  <link rel="canonical" href="https://nathanoiknine.github.io/chanas-baked-goods/checkout.html">
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500;1,600&family=Italianno&family=Nunito+Sans:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body data-page="checkout">
+  <a class="skip" href="#main">Skip to content</a>
+  <div id="site-header"></div>
+  <main id="main">
+    <div class="wrap page measure-form" id="checkout-root">
+      <noscript><p class="callout">To order, text 413-355-3682. One-week notice. No minimum. No payment on this website.</p></noscript>
+      <p class="kicker">Pre-order</p>
+      <h1 id="page-title">Checkout</h1>
+      <p class="lede" id="page-intro">Review the pre-order. This does not take payment — Chana confirms timing and price by text.</p>
+      <p class="phone-block">Text <a class="js-phone" href="sms:+14133553682">413-355-3682</a></p>
+      <ol class="progress" id="progress">
+        <li><button type="button" data-goto="cart" aria-current="step">1 · Cart</button></li>
+        <li><button type="button" data-goto="details">2 · Details</button></li>
+        <li><button type="button" data-goto="review">3 · Review</button></li>
+      </ol>
+      <section data-panel="cart">
+        <div id="cart-lines"></div>
+        <div class="subtotal" id="cart-total"></div>
+        <div class="form-actions">
+          <button class="btn btn-primary" type="button" id="to-details">Continue</button>
+          <a class="btn btn-ghost" href="menu.html">Add more</a>
+        </div>
+      </section>
+      <section data-panel="details" hidden>
+        <form id="details-form" novalidate>
+          <input class="hp" name="_gotcha" tabindex="-1" autocomplete="off" aria-hidden="true">
+          <div class="form-grid two">
+            <label class="field"><span>Name</span><input name="name" autocomplete="name" data-remember required></label>
+            <label class="field"><span>Phone</span><input name="phone" type="tel" autocomplete="tel" inputmode="tel" data-remember required></label>
+            <label class="field span-2"><span>Email</span><input name="email" type="email" autocomplete="email" inputmode="email" data-remember required></label>
+            <label class="field span-2"><span>Preferred date</span><input class="js-min-date" name="date" type="date" data-remember required><span class="hint js-date-help">Choose a day at least 7 days from today. One-week notice.</span></label>
+          </div>
+          <fieldset>
+            <legend>Pickup or delivery</legend>
+            <label class="choice"><input type="radio" name="fulfillment" value="pickup" checked data-remember> Pickup in Pacific Beach</label>
+            <label class="choice"><input type="radio" name="fulfillment" value="delivery" data-remember> Delivery, if it is available nearby</label>
+            <p class="hint">Pickup is primary. Delivery is limited to nearby Pacific Beach and San Diego, and Chana confirms it by text.</p>
+          </fieldset>
+          <label class="field"><span>Notes <span class="optional">(optional)</span></span><textarea name="notes" maxlength="2000" data-remember placeholder="Allergies, a message for a cake, or a pickup window that helps."></textarea></label>
+          <div class="form-actions">
+            <button class="btn btn-primary" type="submit" id="to-review">Review order</button>
+            <button class="btn btn-ghost" type="button" data-goto="cart">Back to cart</button>
+          </div>
+        </form>
+      </section>
+      <section data-panel="review" hidden>
+        <div id="review-body"></div>
+        <div id="allergen-mount"></div>
+      </section>
+      <div id="confirm" class="confirm" hidden tabindex="-1"></div>
+    </div>
+  </main>
+  <div id="site-footer"></div>
+  <script src="js/common.js"></script>
+  <script src="js/checkout.js"></script>
+</body>
+</html>
