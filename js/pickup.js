@@ -10,7 +10,7 @@ document.addEventListener("bakery:ready", (event) => {
   const paragraphs = (pickup.paragraphs || []).map((paragraph) => "<p>" + B.esc(paragraph) + "</p>").join("");
   const neighborhoods = Array.isArray(pickup.neighborhoods) ? pickup.neighborhoods.filter(Boolean) : [];
   const list = neighborhoods.length
-    ? "<h2>Places named for nearby delivery</h2><ul>" + neighborhoods.map((name) => "<li>" + B.esc(name) + "</li>").join("") + "</ul><p class=\"hint\">This list is not a promise. Chana still confirms each drop-off by text.</p>"
+    ? "<h2>Nearby delivery</h2><ul>" + neighborhoods.map((name) => "<li>" + B.esc(name) + "</li>").join("") + "</ul><p class=\"hint\">Still confirmed by text.</p>"
     : "";
   copy.innerHTML = paragraphs + list;
   const caption = document.getElementById("map-caption");

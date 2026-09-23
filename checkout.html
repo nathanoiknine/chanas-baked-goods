@@ -19,10 +19,9 @@
   <main id="main">
     <div class="wrap page measure-form" id="checkout-root">
       <noscript><p class="callout">To order, text 413-355-3682. One-week notice. No minimum. No payment on this website.</p></noscript>
-      <p class="kicker">Pre-order</p>
       <h1 id="page-title">Checkout</h1>
-      <p class="lede" id="page-intro">Review the pre-order. This does not take payment — Chana confirms timing and price by text.</p>
-      <p class="phone-block">Text <a class="js-phone" href="sms:+14133553682">413-355-3682</a></p>
+      <p class="lede" id="page-intro">No payment. Chana confirms by text.</p>
+      <p class="hero-phone">Text <a class="js-phone" href="sms:+14133553682">413-355-3682</a></p>
       <ol class="progress" id="progress">
         <li><button type="button" data-goto="cart" aria-current="step">1 · Cart</button></li>
         <li><button type="button" data-goto="details">2 · Details</button></li>
@@ -48,10 +47,10 @@
           <fieldset>
             <legend>Pickup or delivery</legend>
             <label class="choice"><input type="radio" name="fulfillment" value="pickup" checked data-remember> Pickup in Pacific Beach</label>
-            <label class="choice"><input type="radio" name="fulfillment" value="delivery" data-remember> Delivery, if it is available nearby</label>
-            <p class="hint">Pickup is primary. Delivery is limited to nearby Pacific Beach and San Diego, and Chana confirms it by text.</p>
+            <label class="choice"><input type="radio" name="fulfillment" value="delivery" data-remember> Nearby delivery, if she can</label>
           </fieldset>
-          <label class="field"><span>Notes <span class="optional">(optional)</span></span><textarea name="notes" maxlength="2000" data-remember placeholder="Allergies, a message for a cake, or a pickup window that helps."></textarea></label>
+          <label class="field"><span>Notes <span class="optional">(optional)</span></span><textarea name="notes" maxlength="2000" data-remember placeholder="Allergies, a cake message, a pickup window."></textarea></label>
+          <p class="hint"><a href="menu.html#allergen">Allergen notice</a></p>
           <div class="form-actions">
             <button class="btn btn-primary" type="submit" id="to-review">Review order</button>
             <button class="btn btn-ghost" type="button" data-goto="cart">Back to cart</button>
@@ -60,7 +59,6 @@
       </section>
       <section data-panel="review" hidden>
         <div id="review-body"></div>
-        <div id="allergen-mount"></div>
       </section>
       <div id="confirm" class="confirm" hidden tabindex="-1"></div>
     </div>

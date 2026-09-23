@@ -45,9 +45,7 @@
       phoneSms: "+14133553682",
       location: "Pacific Beach, San Diego",
       tagline: "Small-batch baking, made from scratch.",
-      footerSignoff: "Baked with care",
-      description: "A fully kosher, pareve home bakery in Pacific Beach, San Diego.",
-      policies: "Custom orders welcome. One-week notice. No minimum order."
+      footerSignoff: "Baked with care"
     }, (site && site.business) || {});
   }
 
@@ -204,7 +202,7 @@
 
   function allergenHtml(site) {
     const allergen = (site && site.allergen) || {};
-    return '<aside class="callout allergen"><h2>' + esc(allergen.heading || "Allergen notice") + "</h2><p>" + esc(allergen.full || "") + "</p></aside>";
+    return '<aside class="notice" id="allergen"><p class="notice-label">' + esc(allergen.heading || "Allergens") + "</p><p>" + esc(allergen.full || "") + "</p></aside>";
   }
 
   function smsHref(site, text) {
@@ -244,7 +242,6 @@
     const biz = businessOf(site);
     const sms = smsHref(site, options.text);
     element.innerHTML = [
-      '<p class="kicker">Pre-order request</p>',
       "<h2>" + esc(options.title) + "</h2>",
       "<p>" + esc(options.message) + "</p>",
       '<p><a class="btn btn-primary" href="' + esc(sms) + '">Text ' + esc(biz.phoneDisplay) + "</a></p>",
@@ -341,19 +338,21 @@
     if (result.channel === "buttondown") {
       return "";
     }
-    return "This site does not store orders by itself. Texting Chana is how the request reaches her.";
+    return "Text the summary to Chana. This site does not store it.";
   }
 
   function signupFormHtml(site, variant) {
-    const button = (site.signup && site.signup.button) || "Keep me posted";
-    const name = variant === "compact"
+    const button = (site.signup && site.signup.button) || "Send";
+    const inline = variant === "inline" || variant === "compact";
+    const name = inline
       ? ""
       : '<label class="field"><span>Name <span class="optional">(optional)</span></span><input name="name" autocomplete="name" data-remember></label>';
+    const emailLabel = inline ? '<span class="sr-only">Email</span>' : "<span>Email</span>";
     return [
-      '<form class="signup-form" novalidate>',
+      '<form class="signup-form' + (inline ? " signup-inline" : "") + '" novalidate>',
       '<input class="hp" name="_gotcha" tabindex="-1" autocomplete="off" aria-hidden="true">',
       name,
-      '<label class="field"><span>Email</span><input name="email" type="email" autocomplete="email" inputmode="email" required></label>',
+      '<label class="field">' + emailLabel + '<input name="email" type="email" autocomplete="email" inputmode="email" placeholder="Email" required></label>',
       '<button class="btn btn-primary" type="submit">' + esc(button) + "</button>",
       '<p class="form-status" role="alert" hidden></p>',
       "</form>",
@@ -394,7 +393,7 @@
       const connected = result.channel === "formspree" || result.channel === "mailto";
       const message = connected
         ? ((site.signup && site.signup.success) || "Thank you.")
-        : "This page is not connected to a mailing list yet, so the email was not saved. Text " + businessOf(site).phoneDisplay + " with your email and Chana can keep you posted.";
+        : "Not saved yet — a mailing list is not connected. Text " + businessOf(site).phoneDisplay + " with your email.";
       form.hidden = true;
       fillConfirmation(mount.querySelector(".confirm"), {
         site,
@@ -467,7 +466,7 @@
     const page = document.body.dataset.page || "";
     const pinned = (news || []).find((item) => item && item.pinned);
     const banner = pinned
-      ? '<div class="banner"><p>' + esc(pinned.title) + (pinned.excerpt ? " — " + esc(pinned.excerpt) : "") + ' <a href="announcements.html#' + esc(pinned.id) + '">Read the note</a></p></div>'
+      ? '<div class="banner"><p><a href="announcements.html#' + esc(pinned.id) + '">' + esc(pinned.title) + "</a></p></div>"
       : "";
     const links = NAV.map((item) => {
       const current = item.id === page ? ' aria-current="page"' : "";
@@ -491,27 +490,18 @@
   function footerHtml(site) {
     const biz = businessOf(site);
     const allergen = (site && site.allergen) || {};
-    const signup = (site && site.signup) || {};
-    const links = NAV.map((item) => '<li><a href="' + item.href + '">' + esc(item.label) + "</a></li>").join("");
+    const links = NAV.concat([
+      { href: "order.html", label: "Order" },
+      { href: "checkout.html", label: "Checkout" }
+    ]).map((item) => '<a href="' + item.href + '">' + esc(item.label) + "</a>").join("");
     return [
-      '<footer class="footer"><div class="wrap footer-grid">',
-      "<div>",
-      '<p class="footer-name">' + esc(biz.name) + "</p>",
-      "<p>" + esc(biz.tagline) + "</p>",
-      "<p>" + esc(biz.description) + "</p>",
-      "<p><strong>" + esc(biz.policies) + "</strong></p>",
-      '<p class="phone-block"><a href="sms:' + esc(biz.phoneSms) + '">Text ' + esc(biz.phoneDisplay) + "</a></p>",
-      '<p class="hint">' + esc(biz.location) + "</p>",
+      '<footer class="footer"><div class="wrap footer-inner">',
       '<p class="footer-signoff">' + esc(biz.footerSignoff) + "</p>",
-      "</div>",
-      '<div><h2 class="footer-heading">Visit</h2><ul class="footer-links">' + links + '<li><a href="order.html">Order</a></li><li><a href="checkout.html">Checkout</a></li></ul></div>',
-      "<div>",
-      '<h2 class="footer-heading">' + esc(signup.title || "Updates") + "</h2>",
-      "<p>" + esc(signup.intro || "") + "</p>",
-      '<div data-signup data-variant="compact"></div>',
-      '<h2 class="footer-heading allergen-heading">' + esc((site.allergen && site.allergen.heading) || "Allergen notice") + "</h2>",
-      '<p class="allergen-short">' + esc(allergen.short || "") + "</p>",
-      "</div></div></footer>"
+      '<p><a class="footer-phone" href="sms:' + esc(biz.phoneSms) + '">Text ' + esc(biz.phoneDisplay) + "</a></p>",
+      '<p class="hint">' + esc(biz.location) + "</p>",
+      '<nav class="footer-nav" aria-label="Footer">' + links + "</nav>",
+      '<p class="allergen-short"><span class="notice-label">' + esc(allergen.heading || "Allergens") + ".</span> " + esc(allergen.short || "") + "</p>",
+      "</div></footer>"
     ].join("");
   }
 

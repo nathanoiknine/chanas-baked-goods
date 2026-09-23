@@ -19,11 +19,9 @@
   <main id="main">
     <div class="wrap page measure-form">
       <noscript><p class="callout">For a custom bake, text 413-355-3682. One-week notice. Pareve and kosher ingredients. Pacific Beach, San Diego.</p></noscript>
-      <p class="kicker">Special request</p>
       <h1 id="page-title">Custom order</h1>
-      <p class="lede" id="page-intro">For a bake that is not on the menu. Tell her the occasion, the day, and what you are imagining. She replies with a price. Please allow one week.</p>
-      <p class="phone-block">Text <a class="js-phone" href="sms:+14133553682">413-355-3682</a></p>
-      <p class="hint" id="pricing-note"></p>
+      <p class="lede" id="page-intro">Something off the menu. Priced by text.</p>
+      <p class="hero-phone">Text <a class="js-phone" href="sms:+14133553682">413-355-3682</a></p>
       <form id="custom-form" novalidate>
         <input class="hp" name="_gotcha" tabindex="-1" autocomplete="off" aria-hidden="true">
         <div class="form-grid two">
@@ -32,17 +30,15 @@
           <label class="field span-2"><span>Email</span><input name="email" type="email" autocomplete="email" inputmode="email" data-remember required></label>
           <label class="field"><span>Occasion</span><input name="occasion" data-remember required placeholder="Birthday, Shabbat, a Tuesday"></label>
           <label class="field"><span>Date needed</span><input class="js-min-date" name="date" type="date" data-remember required><span class="hint js-date-help">Choose a day at least 7 days from today.</span></label>
-          <label class="field span-2"><span>The bake</span><textarea name="description" maxlength="2000" required placeholder="Cake or other bake, flavors, about how many people, and any dietary notes."></textarea><span class="hint">Everything is pareve (non-dairy) and made with kosher ingredients. Mention an allergy here, and read the notice below.</span></label>
-          <label class="field span-2"><span>Inspiration <span class="optional">(optional)</span></span><textarea name="inspiration" maxlength="2000" placeholder="Colors, a flavor memory, words for a cake, or anything she should picture."></textarea></label>
+          <label class="field span-2"><span>The bake</span><textarea name="description" maxlength="2000" required placeholder="Flavor, size, servings, dietary notes."></textarea><span class="hint">Pareve, kosher ingredients. <a href="menu.html#allergen">Allergen notice</a></span></label>
+          <label class="field span-2"><span>Inspiration <span class="optional">(optional)</span></span><textarea name="inspiration" maxlength="2000" placeholder="Colors, words, a flavor to aim for."></textarea></label>
         </div>
         <fieldset>
-          <legend>How should Chana reply?</legend>
+          <legend>Reply by</legend>
           <label class="choice"><input type="radio" name="contactMethod" value="text" checked> Text</label>
           <label class="choice"><input type="radio" name="contactMethod" value="phone"> Phone call</label>
           <label class="choice"><input type="radio" name="contactMethod" value="email"> Email</label>
-          <p class="hint">She usually follows up by text at 413-355-3682 either way.</p>
         </fieldset>
-        <div id="allergen-mount"></div>
         <div class="form-actions">
           <button class="btn btn-primary" type="submit">Send custom request</button>
         </div>

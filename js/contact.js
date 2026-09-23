@@ -59,8 +59,8 @@ document.addEventListener("bakery:ready", (event) => {
     form.hidden = true;
     B.fillConfirmation(document.getElementById("confirm"), {
       site,
-      title: "Chana will follow up by text",
-      message: "Text her at " + B.businessOf(site).phoneDisplay + " if you want to be sure she sees this. She replies by text.",
+      title: "Text this to Chana",
+      message: "She replies by text at " + B.businessOf(site).phoneDisplay + ".",
       text,
       note: B.channelNote(result),
       share: typeof navigator.share === "function"

@@ -7,9 +7,7 @@ document.addEventListener("bakery:ready", async (event) => {
     const intro = document.getElementById("page-intro");
     if (title && page.title) title.textContent = page.title;
     if (intro && page.intro) intro.textContent = page.intro;
-    const signupTitle = document.getElementById("signup-title");
     const signupIntro = document.getElementById("signup-intro");
-    if (signupTitle && site.signup) signupTitle.textContent = site.signup.title;
     if (signupIntro && site.signup) signupIntro.textContent = site.signup.intro;
 
     const list = await B.loadAnnouncements();

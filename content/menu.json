@@ -1,6 +1,6 @@
 {
-  "note": "Everything is pareve (non-dairy) and made with kosher ingredients. The list changes. If you want something else, send a custom request.",
-  "priceNote": "Prices are placeholders so the cart can show an estimate. Chana confirms every total by text. Custom orders are priced by message.",
+  "note": "",
+  "priceNote": "Estimates only. Confirmed by text.",
   "categories": [
     {
       "id": "sourdough",
@@ -13,7 +13,6 @@
           "description": "An everyday loaf with a crackly crust and a mild tang.",
           "price": 12,
           "unit": "loaf",
-          "featured": true,
           "available": true
         },
         {
@@ -45,7 +44,6 @@
           "description": "A classic chip cookie, not too sweet.",
           "price": 16,
           "unit": "dozen",
-          "featured": true,
           "available": true
         },
         {
@@ -59,7 +57,7 @@
         {
           "id": "chocolate-chunk",
           "name": "Chocolate chunk",
-          "description": "Deep chocolate, still pareve. No dairy.",
+          "description": "Deep chocolate.",
           "price": 18,
           "unit": "dozen",
           "available": true
@@ -69,7 +67,7 @@
     {
       "id": "cookie-platters",
       "name": "Cookie platters",
-      "summary": "An assortment for a table or a gathering. Tell Chana the mix when you order.",
+      "summary": "An assortment. Tell her the mix when you order.",
       "items": [
         {
           "id": "home-platter",
@@ -92,12 +90,12 @@
     {
       "id": "cakes",
       "name": "Cakes",
-      "summary": "Simple celebration cakes. Other flavors, sizes, and writing are custom and priced by message.",
+      "summary": "Simple celebration cakes. Other sizes are priced by text.",
       "items": [
         {
           "id": "vanilla-cake",
           "name": "Vanilla cake",
-          "description": "Serves about 8 to 10, finished with pareve frosting.",
+          "description": "Serves about 8 to 10.",
           "price": 48,
           "unit": "cake",
           "available": true
@@ -105,7 +103,7 @@
         {
           "id": "chocolate-cake",
           "name": "Chocolate cake",
-          "description": "Serves about 8 to 10, with pareve chocolate frosting.",
+          "description": "Serves about 8 to 10.",
           "price": 52,
           "unit": "cake",
           "available": true
@@ -123,7 +121,6 @@
           "description": "A small box for a few people.",
           "price": 16,
           "unit": "box of 6",
-          "featured": true,
           "available": true
         },
         {
@@ -139,7 +136,7 @@
     {
       "id": "rugelach",
       "name": "Rugelach",
-      "summary": "Flaky pareve rugelach. Fillings vary with the week.",
+      "summary": "Flaky, filled. The mix changes with the week.",
       "items": [
         {
           "id": "rugelach-assorted",
@@ -147,13 +144,12 @@
           "description": "A mixed box. Ask what is baking that week.",
           "price": 22,
           "unit": "box of 12",
-          "featured": true,
           "available": true
         },
         {
           "id": "rugelach-chocolate",
           "name": "Chocolate rugelach",
-          "description": "Chocolate filling, still non-dairy.",
+          "description": "Chocolate filling.",
           "price": 22,
           "unit": "box of 12",
           "available": true
@@ -186,7 +182,7 @@
     {
       "id": "pavlova",
       "name": "Pavlova",
-      "summary": "Crisp meringue, soft in the middle, finished with fruit. No dairy.",
+      "summary": "Crisp meringue, soft in the middle, finished with fruit.",
       "items": [
         {
           "id": "pavlova-individual",

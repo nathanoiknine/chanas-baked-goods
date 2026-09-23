@@ -6,51 +6,30 @@
     "phoneSms": "+14133553682",
     "location": "Pacific Beach, San Diego",
     "tagline": "Small-batch baking, made from scratch.",
-    "footerSignoff": "Baked with care",
-    "description": "Chana's Baked Goods is a fully kosher home bakery in Pacific Beach, San Diego. Chana Oiknine bakes small batches from scratch. All products are pareve (non-dairy).",
-    "policies": "Custom orders welcome. One-week notice. No minimum order."
+    "footerSignoff": "Baked with care"
   },
   "hero": {
-    "kicker": "Pacific Beach, San Diego",
-    "lede": "A fully kosher home bakery. Chana Oiknine bakes to order — bread, cookies, cakes, and a few other sweets — all pareve, all from scratch."
+    "kicker": "Pacific Beach, San Diego"
   },
-  "offeringsIntro": "Usual categories. This is not a fixed catalog — if you don't see what you want, ask.",
   "facts": [
-    "Fully kosher home bakery",
-    "All products pareve (non-dairy)",
-    "Custom orders welcome",
-    "One-week notice",
-    "No minimum order",
-    "Pacific Beach, San Diego"
+    "Kosher",
+    "Pareve",
+    "One week ahead",
+    "No minimum"
   ],
-  "steps": [
-    {
-      "title": "Choose",
-      "text": "Pick from the menu, or describe a custom bake."
-    },
-    {
-      "title": "Send a date",
-      "text": "Allow at least one week. There is no minimum order."
-    },
-    {
-      "title": "She texts you",
-      "text": "Chana confirms timing and price at 413-355-3682. Nothing is charged on this site."
-    }
-  ],
-  "pricingNote": "Prices on the menu are placeholders so you can sketch an order. Chana confirms the real total by text before she bakes. Custom work is priced by message. No payment is collected here.",
-  "dateHelp": "Choose a day at least 7 days from today.",
+  "pricingNote": "Estimates only. Confirmed by text.",
+  "dateHelp": "At least 7 days from today.",
   "allergen": {
-    "heading": "Allergen notice",
-    "short": "Pareve and made with kosher ingredients. This home kitchen may also handle wheat, eggs, tree nuts, peanuts, soy, and sesame — text Chana before ordering if you have an allergy.",
-    "full": "All products are pareve (non-dairy) and made with kosher ingredients. They are prepared in a home kitchen that may also handle common allergens, including wheat and gluten, eggs, tree nuts, peanuts, soy, and sesame. If you have a food allergy, text Chana at 413-355-3682 before you order so she can tell you what is realistic."
+    "heading": "Allergens",
+    "short": "Pareve, kosher ingredients. This home kitchen may also handle wheat, eggs, tree nuts, peanuts, soy, and sesame.",
+    "full": "Pareve (non-dairy), made with kosher ingredients, in a home kitchen that may handle wheat, eggs, tree nuts, peanuts, soy, and sesame. Text Chana before ordering if you have an allergy."
   },
   "pickup": {
-    "title": "Pickup and delivery",
-    "intro": "Pickup is the usual way to get an order. Delivery, when Chana can offer it, stays close to Pacific Beach.",
+    "title": "Pickup",
+    "intro": "Pickup in Pacific Beach. Nearby delivery only if Chana can do it that week.",
     "paragraphs": [
-      "Chana bakes from her home kitchen in Pacific Beach, San Diego. She does not publish a street address. Once a pre-order is confirmed, she texts the pickup details.",
-      "Delivery is not the default. When she can offer it for your date, it is limited to nearby Pacific Beach and the surrounding San Diego area. She confirms the area, the timing, and any fee by text before you count on it.",
-      "The map below is a general picture of Pacific Beach, not a boundary. If you are unsure whether a drop-off is possible, text 413-355-3682."
+      "She texts the pickup spot once the order is confirmed. No street address is listed here.",
+      "Delivery, when it is offered, stays near Pacific Beach and is confirmed by text."
     ],
     "neighborhoods": [],
     "map": {
@@ -58,14 +37,14 @@
       "lng": -117.243,
       "zoom": 13,
       "radiusMeters": 1800,
-      "caption": "Pacific Beach, San Diego. The circle is a neighborhood view, not a delivery boundary."
+      "caption": "Pacific Beach. The circle is not a delivery boundary."
     }
   },
   "signup": {
-    "title": "A note when the menu changes",
-    "intro": "Leave an email if you would like a short update when preorders open or offerings shift.",
-    "button": "Keep me posted",
-    "success": "Thank you. If a mailing list is connected, you are on it. Chana's notes are occasional, not a flood of mail."
+    "title": "Updates",
+    "intro": "A note when the menu changes.",
+    "button": "Send",
+    "success": "Thank you. You're on the list."
   },
   "forms": {
     "notifyEmail": "",
@@ -81,27 +60,27 @@
   "pages": {
     "menu": {
       "title": "Menu",
-      "intro": "A working list — it changes. Everything here is pareve (non-dairy) and made with kosher ingredients. There is no minimum order."
+      "intro": "Baked to order. The list changes."
     },
     "order": {
-      "title": "Place a pre-order",
-      "intro": "Tell Chana what you would like and when. She will text you to confirm the details and the price. Nothing is charged on this site."
+      "title": "Pre-order",
+      "intro": "Chana confirms by text. No payment here."
     },
     "contact": {
       "title": "Contact",
-      "intro": "The fastest way to reach Chana is a text. The form is here if you would rather write it out."
+      "intro": "A text is fastest."
     },
     "checkout": {
       "title": "Checkout",
-      "intro": "Review the pre-order. This does not take payment — Chana confirms timing and price by text."
+      "intro": "No payment. Chana confirms by text."
     },
     "custom": {
       "title": "Custom order",
-      "intro": "For a bake that is not on the menu. Tell her the occasion, the day, and what you are imagining. She replies with a price. Please allow one week."
+      "intro": "Something off the menu. Priced by text."
     },
     "announcements": {
       "title": "Updates",
-      "intro": "News about preorders and what is baking. Older notes stay here."
+      "intro": "Preorder news and menu notes."
     }
   }
 }

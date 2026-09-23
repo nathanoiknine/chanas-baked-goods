@@ -7,11 +7,6 @@ document.addEventListener("bakery:ready", async (event) => {
     const intro = document.getElementById("page-intro");
     if (title && page.title) title.textContent = page.title;
     if (intro && page.intro) intro.textContent = page.intro;
-    const pricing = document.getElementById("pricing-note");
-    if (pricing) pricing.textContent = site.pricingNote || "";
-    const allergen = document.getElementById("allergen-mount");
-    if (allergen) allergen.innerHTML = B.allergenHtml(site);
-
     const menu = await B.loadMenu();
     const index = B.menuIndex(menu);
     const root = document.getElementById("order-items");
@@ -22,8 +17,8 @@ document.addEventListener("bakery:ready", async (event) => {
         const existing = B.readCart().find((line) => line.id === item.id);
         const qty = existing ? existing.qty : 0;
         return [
-          '<div class="item" data-id="' + B.esc(item.id) + '">',
-          "<div><h3>" + B.esc(item.name) + "</h3><p>" + B.esc(item.description || "") + "</p></div>",
+          '<div class="item item-compact" data-id="' + B.esc(item.id) + '">',
+          "<div><h3>" + B.esc(item.name) + "</h3></div>",
           '<div class="item-buy"><p class="price">' + B.esc(B.priceLabel(item)) + "</p>",
           '<div class="qty">',
           '<button type="button" data-step="-1" aria-label="Decrease ' + B.esc(item.name) + '">−</button>',
@@ -81,14 +76,14 @@ document.addEventListener("bakery:ready", async (event) => {
       const node = document.getElementById("order-estimate");
       const lines = currentLines().filter((line) => !line.unavailable && line.qty > 0);
       if (!lines.length) {
-        node.textContent = "No items yet. There is no minimum — add as little as you need.";
+        node.textContent = "Add at least one item.";
         return;
       }
       const totals = B.totals(lines);
       const estimate = totals.complete
-        ? "Estimated subtotal " + B.money(totals.sum) + "."
-        : "Estimated subtotal " + B.money(totals.sum) + ", plus items priced by message.";
-      node.textContent = estimate + " Chana confirms the real total by text. No payment now. No minimum order.";
+        ? "Estimate " + B.money(totals.sum) + "."
+        : "Estimate " + B.money(totals.sum) + ", plus items priced by message.";
+      node.textContent = estimate + " Confirmed by text.";
     }
     renderEstimate();
 
@@ -157,8 +152,8 @@ document.addEventListener("bakery:ready", async (event) => {
       form.hidden = true;
       B.fillConfirmation(document.getElementById("confirm"), {
         site,
-        title: "Chana will follow up by text",
-        message: "This is a pre-order request, not a payment. Text her at " + B.businessOf(site).phoneDisplay + " and she will confirm timing and price. There is no minimum order.",
+        title: "Text this to Chana",
+        message: "She'll confirm timing and price at " + B.businessOf(site).phoneDisplay + ". No payment is taken here.",
         text,
         note: B.channelNote(result),
         share: typeof navigator.share === "function"

@@ -4,11 +4,15 @@ This is the editing guide. The public pages read these files when someone opens 
 
 After you change a file, commit it to the `main` branch (or merge a pull request into `main`). GitHub Actions publishes the site within a few minutes. Then refresh https://nathanoiknine.github.io/chanas-baked-goods/ — a hard refresh is sometimes needed.
 
-The phone number used everywhere in the live pages is `business.phoneDisplay` in `content/site.json`. Keep it as **413-355-3682** unless the real number changes. `phoneSms` is the same number with a country code: `+14133553682`.
+The phone number used on the live pages is `business.phoneDisplay` in `content/site.json`. Keep it as **413-355-3682** unless the real number changes. `phoneSms` is the same number with a country code: `+14133553682`.
+
+Say each fact once. Kosher, pareve, one week ahead, and no minimum belong in `facts` (the short line under the home page phone). The footer repeats only the phone, the neighborhood, and a short allergen line.
 
 ## Menu — `content/menu.json`
 
 The menu is a list of categories. Current categories: Sourdough, Cookies, Cookie platters, Cakes, Lemon bars, Rugelach, Dessert cups, Pavlova. Add another category by copying a whole category block, or add an item inside `items`.
+
+Category `name` is what the home page lists, as a link into that part of the menu. `summary` is one sentence under the category heading on the menu page. Keep it to one sentence.
 
 Each item looks like this:
 
@@ -19,19 +23,19 @@ Each item looks like this:
   "description": "A classic chip cookie, not too sweet.",
   "price": 16,
   "unit": "dozen",
-  "featured": true,
   "available": true
 }
 ```
 
 - `id` is a short name with hyphens. It must be unique. Do not change an id that people might already have in a cart unless you mean to retire that item.
+- `description` is one short sentence on the menu. The pre-order form shows the name and price only.
 - `price` is a placeholder number so checkout can show an estimate. Chana still confirms the real price by text. Set `"price": null` to show "Price by message" instead of a dollar amount. Custom work should stay priced by message.
 - `unit` is the words after the price, such as `loaf` or `box of 12`.
-- `"featured": true` puts the item in the "From the menu" row on the home page. Leave the line off if it should not be featured.
-- `"available": false` hides the item without deleting it.
-- The two notes at the top of the file (`note` and `priceNote`) are the sentences at the top of the menu page. The menu is allowed to change. It is not a permanent catalog.
+- `"available": false` hides the item without deleting it. A category with no available items disappears from the home page and the menu.
+- `note` at the top of the file is an optional extra line under the menu introduction. Leave it `""` unless you need it.
+- `priceNote` is the short line under the introduction ("Estimates only. Confirmed by text.").
 
-Keep every product pareve (non-dairy). Do not add a dairy item without rewriting the pareve lines in `content/site.json` as well.
+Keep every product pareve (non-dairy). Do not add a dairy item without rewriting `facts` and `allergen` in `content/site.json`.
 
 JSON is picky: quotes around text, commas between lines, no comma after the last item in a list. If the menu page is blank, a comma is usually the problem. You can paste the file into https://jsonlint.com to check it.
 
@@ -41,47 +45,48 @@ This is a list. The sample note is "Preorders are open". Copy that block to add 
 
 - `id` becomes the link (`announcements.html#preorders-open`). Use a new id each time.
 - `date` is `YYYY-MM-DD`.
-- `title` is the heading.
-- `excerpt` is the short line in the banner at the top of the site.
-- `body` is the full note. A blank line between sentences (in the JSON string, that is `\n\n`) starts a new paragraph.
-- `"pinned": true` shows that note in the top banner. Only the first pinned note is used. Set it to `false` when the banner should come down. The note still stays on the Updates page.
+- `title` is the heading. If the note is pinned, this title is also the only line in the banner at the top of the site.
+- `body` is the full note. A blank line between sentences (in the JSON string, that is `\n\n`) starts a new paragraph. Keep it short.
+- `"pinned": true` shows that title in the top banner. Only the first pinned note is used. Set it to `false` when the banner should come down. The note still stays on the Updates page.
 
 ## About — `content/about.json`
 
-`title`, `lede`, and `paragraphs` are the About page, written in Chana's voice as a starting point. Rewrite them freely. The baker's name, the text number, "fully kosher", and "pareve" on that page come from `content/site.json`, so the phone number does not have to be typed again here.
+`title`, `lede`, and `paragraphs` are the About page. One short paragraph is enough. The text number on that page comes from `content/site.json`.
 
-## Allergen notice, pickup, tagline, policies — `content/site.json`
+## Home, footer, allergen, pickup — `content/site.json`
 
 | What you want to change | Where |
 | --- | --- |
 | Bakery name, Chana's name | `business.name`, `business.baker` |
 | Text number | `business.phoneDisplay` and `business.phoneSms` |
-| Tagline | `business.tagline` (the main line is "Small-batch baking, made from scratch.") |
+| Tagline | `business.tagline` ("Small-batch baking, made from scratch.") |
 | Footer sign-off | `business.footerSignoff` ("Baked with care") |
-| The sentence under the name in the footer | `business.description` |
-| "Custom orders / one-week notice / no minimum" | `business.policies` and the `facts` list |
-| Home page opening paragraph | `hero.lede` and `hero.kicker` |
-| The short list on the home page | `facts` |
-| The three "How to order" steps | `steps` |
-| Introductions on Menu, Order, Contact, Checkout, Custom, Updates | `pages` |
-| Price explanation | `pricingNote` |
-| Allergen heading, footer line, and full notice | `allergen.heading`, `allergen.short`, `allergen.full` |
-| Pickup and delivery paragraphs | `pickup.intro` and `pickup.paragraphs` |
-| Named delivery neighborhoods | `pickup.neighborhoods` — a list of strings. Leave it `[]` until the list is real. The page says delivery is limited and still confirmed by text. |
+| Neighborhood line in the footer | `business.location` |
+| Line above the home page name | `hero.kicker` |
+| The short line under the home page phone | `facts` — a list of short labels, shown once |
+| Introductions on Menu, Pre-order, Contact, Checkout, Custom, Updates | `pages` |
+| Price explanation used if the menu file has no `priceNote` | `pricingNote` |
+| Date field hint | `dateHelp` |
+| Allergen label, footer line, and the longer notice on the menu | `allergen.heading`, `allergen.short`, `allergen.full` |
+| Pickup title, opening line, and the two short paragraphs | `pickup.title`, `pickup.intro`, `pickup.paragraphs` |
+| Named delivery neighborhoods | `pickup.neighborhoods` — a list of strings. Leave it `[]` until the list is real. |
 | Map center | `pickup.map.lat`, `pickup.map.lng`, and `radiusMeters` (how wide the circle is, in meters). The caption should keep saying the circle is not a hard boundary. |
-| Email signup heading and button | `signup.title`, `signup.intro`, `signup.button`, `signup.success` |
+| Email signup heading, one-line explanation, button, and success line | `signup.title`, `signup.intro`, `signup.button`, `signup.success` |
 
-The full allergen notice is shown on Home, Menu, the pre-order form, custom orders, and checkout review. The short version is in the footer of every page.
+Where each fact shows up:
 
-Home, the footer, and the order pages should keep saying what this is, what she bakes, kosher, pareve, custom orders, one-week notice, no minimum, the text number, and Pacific Beach.
+- Home: name, tagline, Order and Menu, the phone, `facts`, category names, and a short email signup.
+- Footer (every page): "Baked with care", the phone, the neighborhood, page links, and `allergen.short`.
+- Menu: category summaries, items, and `allergen.full` (the block with `id="allergen"`).
+- Pre-order, checkout, and custom: a link to that allergen block, not the full paragraph again.
 
 ## Contact, checkout, and custom-order wording
 
 The field labels (Name, Phone, Email, and so on) live in the HTML files: `contact.html`, `checkout.html`, `custom.html`, and `order.html`. You rarely need to touch those.
 
-The introductory sentences come from `content/site.json` under `pages`. Checkout also uses `pricingNote` and `dateHelp`.
+The introductory sentences come from `content/site.json` under `pages`. Checkout and the pre-order form also use `dateHelp`. The menu price line uses `priceNote` in `content/menu.json`.
 
-There is no payment step. Do not add a card form here. If a payment tool is added later, it should be a separate project decision. The checkout page already says Chana confirms the total by text and that payment is not collected on the site.
+There is no payment step. Do not add a card form here. The checkout page says Chana confirms the total by text and that payment is not collected on the site.
 
 ## Connecting the forms
 
@@ -119,7 +124,12 @@ If a Formspree URL is present, that form is sent there and the mailto address is
 
 ### Option C — Buttondown for the email list
 
-The signup blocks are on the home page, the Updates page, and the footer. They ask for an optional name and an email (the footer asks for email only).
+Signup is in two places:
+
+- Home: email only, under the category names.
+- Updates: optional name and email, under the notes.
+
+There is no signup in the footer.
 
 To store addresses in Buttondown:
 
@@ -127,7 +137,7 @@ To store addresses in Buttondown:
 2. Set `forms.buttondownUsername` to the username in your Buttondown URL.
 3. Leave `formspree.signup` empty if you want signup to go to Buttondown. If `buttondownUsername` is set, the signup form sends people to Buttondown's own confirmation.
 
-Until one of these is connected, the site tells the visitor honestly that the email was not saved, and asks them to text it to 413-355-3682. It does not pretend they joined a list.
+Until one of these is connected, the site says the email was not saved and asks the visitor to text it to 413-355-3682. It does not pretend they joined a list.
 
 ## What you should not have to edit
 

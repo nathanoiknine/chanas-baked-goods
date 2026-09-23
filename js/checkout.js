@@ -6,9 +6,6 @@ document.addEventListener("bakery:ready", async (event) => {
   const intro = document.getElementById("page-intro");
   if (title && page.title) title.textContent = page.title;
   if (intro && page.intro) intro.textContent = page.intro;
-  const allergen = document.getElementById("allergen-mount");
-  if (allergen) allergen.innerHTML = B.allergenHtml(site);
-
   let menu = { categories: [] };
   try {
     menu = await B.loadMenu();
@@ -56,7 +53,7 @@ document.addEventListener("bakery:ready", async (event) => {
     const root = document.getElementById("cart-lines");
     const current = lines();
     if (!current.length) {
-      root.innerHTML = '<div class="empty"><h2>Your checkout is empty</h2><p>Add something from the menu, or describe a bake that is not listed.</p><div class="form-actions"><a class="btn btn-primary" href="menu.html">See the menu</a><a class="btn btn-ghost" href="custom.html">Custom order</a></div></div>';
+      root.innerHTML = '<div class="empty"><p>Nothing here yet.</p><div class="form-actions"><a class="btn btn-primary" href="menu.html">Menu</a><a class="btn btn-ghost" href="custom.html">Custom order</a></div></div>';
       document.getElementById("cart-total").hidden = true;
       document.getElementById("to-details").hidden = true;
       return;
@@ -84,7 +81,7 @@ document.addEventListener("bakery:ready", async (event) => {
     const estimate = usable.length
       ? (totals.complete ? B.money(totals.sum) : B.money(totals.sum) + " +")
       : B.money(0);
-    total.innerHTML = '<div><span>Estimated subtotal</span><p class="hint">Placeholder prices. Chana confirms the real total by text. No payment now. No minimum order.</p></div><strong>' + B.esc(estimate) + "</strong>";
+    total.innerHTML = '<div><span>Estimate</span><p class="hint">Confirmed by text. No payment now.</p></div><strong>' + B.esc(estimate) + "</strong>";
   }
 
   function setLineQty(id, qty) {
@@ -155,7 +152,7 @@ document.addEventListener("bakery:ready", async (event) => {
         "<li><span>" + line.qty + " × " + B.esc(line.name) + "</span><span>" + B.esc(B.priceLabel(line)) + "</span></li>"
       )).join("") + "</ul>",
       '<p class="subtotal"><span>Estimate</span><span>' + B.esc(totals.complete ? B.money(totals.sum) : B.money(totals.sum) + " +") + "</span></p>",
-      '<p class="hint">Placeholder total. Chana confirms the price by text. No payment is taken. No minimum order.</p>',
+      '<p class="hint">Estimate only. Confirmed by text. No payment now.</p>',
       "<h3>For Chana</h3>",
       "<p>" + B.esc(String(data.get("name") || "").trim()) + "<br>" + B.esc(String(data.get("phone") || "").trim()) + "<br>" + B.esc(String(data.get("email") || "").trim()) + "</p>",
       "<p>Date wanted: " + B.esc(B.formatWhen(String(data.get("date") || ""))) + "<br>" + B.esc(fulfillment) + "</p>",
@@ -217,8 +214,8 @@ document.addEventListener("bakery:ready", async (event) => {
     });
     B.fillConfirmation(document.getElementById("confirm"), {
       site,
-      title: "Chana will follow up by text",
-      message: "This pre-order is not a payment. Text her at " + B.businessOf(site).phoneDisplay + " and she will confirm timing and the real price. Payment can be added later — it is not on this site.",
+      title: "Text this to Chana",
+      message: "She'll confirm timing and price at " + B.businessOf(site).phoneDisplay + ". No payment is taken here.",
       text,
       note: B.channelNote(result),
       share: typeof navigator.share === "function"

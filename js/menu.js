@@ -9,8 +9,14 @@ document.addEventListener("bakery:ready", async (event) => {
     if (intro && site.pages && site.pages.menu) intro.textContent = site.pages.menu.intro;
     const note = document.getElementById("menu-note");
     const priceNote = document.getElementById("price-note");
-    if (note) note.textContent = menu.note || "";
-    if (priceNote) priceNote.textContent = menu.priceNote || site.pricingNote || "";
+    if (note) {
+      note.textContent = menu.note || "";
+      note.hidden = !menu.note;
+    }
+    if (priceNote) {
+      priceNote.textContent = menu.priceNote || site.pricingNote || "";
+      priceNote.hidden = !priceNote.textContent;
+    }
 
     const allergen = document.getElementById("allergen-mount");
     if (allergen) allergen.innerHTML = B.allergenHtml(site);
@@ -31,7 +37,7 @@ document.addEventListener("bakery:ready", async (event) => {
       return [
         '<section class="menu-cat" id="' + B.esc(category.id) + '">',
         "<h2>" + B.esc(category.name) + "</h2>",
-        "<p class=\"measure\">" + B.esc(category.summary || "") + "</p>",
+        category.summary ? '<p class="cat-summary">' + B.esc(category.summary) + "</p>" : "",
         items,
         "</section>"
       ].join("");

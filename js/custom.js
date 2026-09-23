@@ -6,11 +6,6 @@ document.addEventListener("bakery:ready", (event) => {
   const intro = document.getElementById("page-intro");
   if (title && page.title) title.textContent = page.title;
   if (intro && page.intro) intro.textContent = page.intro;
-  const allergen = document.getElementById("allergen-mount");
-  if (allergen) allergen.innerHTML = B.allergenHtml(site);
-  const pricing = document.getElementById("pricing-note");
-  if (pricing) pricing.textContent = "Custom pricing is shared by text. This form does not calculate a price. " + (site.pricingNote || "");
-
   const form = document.getElementById("custom-form");
   B.bindRemember(form);
   form.addEventListener("submit", async (submitEvent) => {
@@ -83,8 +78,8 @@ document.addEventListener("bakery:ready", (event) => {
     form.hidden = true;
     B.fillConfirmation(document.getElementById("confirm"), {
       site,
-      title: "Chana will follow up by text",
-      message: "Text her at " + B.businessOf(site).phoneDisplay + " with this request. She will follow up by text" + (contactMethod === "text" ? "." : ", and she will see that you prefer a " + methodLabel.toLowerCase() + "."),
+      title: "Text this to Chana",
+      message: "She'll follow up by text at " + B.businessOf(site).phoneDisplay + (contactMethod === "text" ? "." : ". You asked for a " + methodLabel.toLowerCase() + "."),
       text,
       note: B.channelNote(result),
       share: typeof navigator.share === "function"

@@ -48,8 +48,8 @@ body {
   background: var(--paper);
   color: var(--ink);
   font-family: var(--sans);
-  font-size: 1.05rem;
-  line-height: 1.6;
+  font-size: 1rem;
+  line-height: 1.5;
   -webkit-font-smoothing: antialiased;
 }
 
@@ -76,15 +76,15 @@ h4 {
 }
 
 h1 {
-  font-size: clamp(2.7rem, 8vw, 4.75rem);
+  font-size: clamp(2.15rem, 5vw, 3.1rem);
 }
 
 h2 {
-  font-size: clamp(2rem, 4vw, 2.75rem);
+  font-size: clamp(1.7rem, 3vw, 2.15rem);
 }
 
 h3 {
-  font-size: 1.6rem;
+  font-size: 1.35rem;
 }
 
 p {
@@ -160,7 +160,7 @@ main {
 }
 
 .page {
-  padding-top: 1.6rem;
+  padding-top: 2.75rem;
 }
 
 .measure,
@@ -173,14 +173,15 @@ main {
   max-width: 46rem;
 }
 
-.kicker {
+.kicker,
+.notice-label {
   font-family: var(--sans);
-  font-size: 0.78rem;
+  font-size: 0.72rem;
   font-weight: 700;
-  letter-spacing: 0.14em;
+  letter-spacing: 0.16em;
   text-transform: uppercase;
   color: var(--ink-soft);
-  margin: 0 0 0.7rem;
+  margin: 0 0 0.85rem;
 }
 
 .tagline {
@@ -204,11 +205,18 @@ main {
   font-size: 0.95rem;
 }
 
-.phone-block {
+.phone-block,
+.hero-phone {
   font-family: var(--serif);
-  font-size: clamp(1.8rem, 4vw, 2.5rem);
+  font-size: 1.35rem;
   line-height: 1.2;
-  margin: 0.2rem 0 0.8rem;
+  margin: 0.2rem 0 0;
+}
+
+.hero-phone a,
+.phone-block a {
+  color: inherit;
+  text-decoration-thickness: 1px;
 }
 
 .phone-block a,
@@ -218,21 +226,26 @@ a.phone {
 }
 
 .banner {
-  background: var(--sand);
-  color: var(--ink);
+  background: transparent;
+  color: var(--ink-soft);
   text-align: center;
-  padding: 0.7rem 1rem;
+  padding: 0.55rem 1rem 0;
 }
 
 .banner p {
   margin: 0 auto;
   max-width: 46rem;
-  font-size: 0.98rem;
+  font-size: 0.85rem;
 }
 
 .banner a {
   color: inherit;
-  font-weight: 700;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.banner a:hover {
+  text-decoration: underline;
 }
 
 .site-nav {
@@ -267,7 +280,7 @@ a.phone {
 
 .wordmark-name {
   font-family: var(--serif);
-  font-size: 1.7rem;
+  font-size: 1.45rem;
   font-weight: 600;
   letter-spacing: -0.03em;
 }
@@ -386,16 +399,34 @@ a.phone {
 }
 
 .hero {
-  display: grid;
-  gap: 1.5rem;
-  padding: 2rem 0 0.5rem;
+  display: block;
+  text-align: center;
+  max-width: 38rem;
+  margin: 0 auto;
+  padding: 3.5rem 0 0.5rem;
+}
+
+.hero h1 {
+  font-size: clamp(3.1rem, 8vw, 5.1rem);
+  font-weight: 500;
+  line-height: 0.92;
+  margin-bottom: 0.85rem;
+}
+
+.hero .tagline {
+  margin-inline: auto;
+}
+
+.hero .kicker {
+  margin-bottom: 1.1rem;
 }
 
 .hero-actions {
   display: flex;
   flex-wrap: wrap;
+  justify-content: center;
   gap: 0.6rem;
-  margin: 1.1rem 0 0.8rem;
+  margin: 1.6rem 0 1rem;
 }
 
 .hero-card {
@@ -694,17 +725,18 @@ a.phone {
 }
 
 fieldset {
-  border: 1px solid var(--line);
-  border-radius: 16px;
-  margin: 1rem 0;
-  padding: 0.9rem 1rem 1rem;
-  background: var(--surface);
+  border: 0;
+  border-radius: 0;
+  margin: 1.5rem 0 0.5rem;
+  padding: 0;
+  background: transparent;
 }
 
 legend {
   font-family: var(--serif);
   font-size: 1.45rem;
-  padding: 0 0.35rem;
+  padding: 0;
+  margin-bottom: 0.35rem;
 }
 
 .choice {
@@ -856,8 +888,8 @@ legend {
 }
 
 .leaflet-container {
-  height: 100%;
   width: 100%;
+  height: 320px;
   background: #efe6da;
   font-family: var(--sans);
 }
@@ -868,10 +900,10 @@ legend {
 }
 
 .footer {
-  background: var(--paper-deep);
+  background: transparent;
   border-top: 1px solid var(--line);
-  padding: 2.4rem 0 2rem;
-  margin-top: 1rem;
+  padding: 3.5rem 0 2.5rem;
+  margin-top: 2rem;
 }
 
 .footer-grid {
@@ -1001,6 +1033,252 @@ body.nav-open .cart-bar {
   padding: 1.1rem 1.15rem;
 }
 
+.trust {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.2rem 0;
+  margin: 1.75rem 0 0;
+  padding: 0;
+  color: var(--ink-soft);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.trust li {
+  display: inline-flex;
+  align-items: center;
+}
+
+.trust li:not(:last-child)::after {
+  content: "·";
+  margin: 0 0.7rem;
+  color: var(--tan);
+  font-weight: 400;
+  letter-spacing: 0;
+}
+
+.offerings {
+  margin: 3.75rem auto 0;
+  max-width: 40rem;
+  text-align: center;
+}
+
+.offering-list {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin: 0;
+  padding: 0;
+}
+
+.offering-list li {
+  display: inline-flex;
+  align-items: center;
+}
+
+.offering-list li:not(:last-child)::after {
+  content: "·";
+  margin: 0 0.7rem;
+  color: var(--tan);
+}
+
+.offering-list a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  font-family: var(--serif);
+  font-size: clamp(1.35rem, 2.5vw, 1.7rem);
+  line-height: 1;
+  color: var(--ink);
+  text-decoration: none;
+}
+
+.offering-list a:hover {
+  color: var(--accent);
+}
+
+.signup-band {
+  max-width: 28rem;
+  margin: 4rem auto 0.5rem;
+  padding-top: 2.25rem;
+  border-top: 1px solid var(--line);
+  text-align: center;
+}
+
+.signup-band h2 {
+  margin-bottom: 0.35rem;
+}
+
+.signup-band .hint {
+  margin-bottom: 0.9rem;
+}
+
+.page .signup-band {
+  margin-left: 0;
+  margin-right: 0;
+  text-align: left;
+}
+
+.signup-inline {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+  margin-top: 0;
+}
+
+.page .signup-inline {
+  justify-content: flex-start;
+}
+
+.signup-inline .field {
+  flex: 1 1 14rem;
+  min-width: 0;
+  font-weight: 400;
+}
+
+.signup-inline .form-status {
+  flex-basis: 100%;
+  text-align: center;
+}
+
+.page .signup-inline .form-status {
+  text-align: left;
+}
+
+.page .hero-phone {
+  margin: 0.15rem 0 1.5rem;
+}
+
+.footer-inner {
+  max-width: 36rem;
+  margin-inline: auto;
+  text-align: center;
+}
+
+.footer-phone {
+  font-family: var(--serif);
+  font-size: 1.45rem;
+  line-height: 1.2;
+  color: var(--ink);
+  text-decoration: none;
+}
+
+.footer-phone:hover {
+  color: var(--accent);
+}
+
+.footer-nav {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.15rem 1rem;
+  margin: 1rem 0 1.35rem;
+}
+
+.footer-nav a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  color: var(--ink-soft);
+  text-decoration: none;
+  font-size: 0.92rem;
+}
+
+.footer-nav a:hover {
+  color: var(--ink);
+  text-decoration: underline;
+}
+
+.footer-signoff {
+  margin: 0 0 0.85rem;
+}
+
+.allergen-short {
+  max-width: 34rem;
+  margin: 0 auto;
+  color: var(--ink-soft);
+  font-size: 0.9rem;
+  line-height: 1.45;
+}
+
+.allergen-short .notice-label {
+  display: inline;
+  margin: 0 0.35rem 0 0;
+  letter-spacing: 0.12em;
+  font-size: 0.68rem;
+}
+
+.notice {
+  max-width: 36rem;
+  margin-top: 2.75rem;
+  padding-top: 1.35rem;
+  border-top: 1px solid var(--line);
+}
+
+.notice p:last-child {
+  margin: 0;
+  color: var(--ink-soft);
+}
+
+.cat-summary {
+  max-width: 36rem;
+  margin: 0 0 0.15rem;
+  color: var(--ink-soft);
+}
+
+.menu-cat {
+  padding-top: 1.75rem;
+}
+
+.menu-cat h2 {
+  margin-bottom: 0.2rem;
+}
+
+.item {
+  padding: 0.8rem 0;
+}
+
+.item-compact {
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 0.65rem;
+  padding: 0.35rem 0;
+}
+
+.item-compact h3 {
+  font-size: 1.2rem;
+  margin: 0;
+}
+
+.item-compact .price {
+  font-size: 1.15rem;
+  margin: 0;
+}
+
+.item-compact .item-buy {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 0.65rem;
+}
+
+#order-items > h3 {
+  margin: 1.15rem 0 0.1rem;
+  font-family: var(--sans);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+}
+
 @media (min-width: 640px) {
   .card-grid {
     grid-template-columns: 1fr 1fr;
@@ -1050,14 +1328,7 @@ body.nav-open .cart-bar {
   }
 
   .hero {
-    grid-template-columns: 1.35fr 0.8fr;
-    gap: 3rem;
-    align-items: start;
-    padding-top: 3.2rem;
-  }
-
-  .footer-grid {
-    grid-template-columns: 1.4fr 0.8fr 1fr;
+    padding-top: 5.5rem;
   }
 }
 
@@ -1098,6 +1369,7 @@ body.nav-open .cart-bar {
   .cart-link {
     padding: 0.2rem 0;
     min-height: 44px;
+    font-size: 0.95rem;
   }
 
   .nav-phone {
@@ -1110,9 +1382,7 @@ body.nav-open .cart-bar {
 }
 
 @media (max-width: 560px) {
-  .hero-actions,
-  .form-actions .btn,
-  .signup-form .btn {
+  .form-actions .btn {
     width: 100%;
   }
 }

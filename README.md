@@ -11,7 +11,7 @@ The site is a static set of HTML pages. There is no app server and no payment pr
 
 | Page | File | What it is |
 | --- | --- | --- |
-| Home | `index.html` | What the bakery is, offerings, how to order, allergen notice, email signup |
+| Home | `index.html` | Name, tagline, how to order, a short trust line, category names, email signup |
 | Menu | `menu.html` | Editable menu with categories and placeholder prices |
 | About | `about.html` | Short personal page |
 | Updates | `announcements.html` | Announcements, plus email signup |
@@ -21,7 +21,7 @@ The site is a static set of HTML pages. There is no app server and no payment pr
 | Contact | `contact.html` | Name, email, phone, message |
 | Pickup | `pickup.html` | Pacific Beach pickup, limited nearby delivery, map |
 
-Footer on every page: kosher, pareve, custom orders, one-week notice, no minimum, the text number, Pacific Beach, a short allergen notice, and "Baked with care".
+Footer on every page: "Baked with care", the text number, Pacific Beach, page links, and a short allergen line. Kosher, pareve, one week ahead, and no minimum are said once, on the home page.
 
 ## How Chana updates the words
 
@@ -31,7 +31,7 @@ Day-to-day edits live in the `content/` folder, not in the page layout. See **[U
 
 Cream, beige, and warm paper backgrounds. Dark brown is for text and small buttons, not big dark panels. Headings are a serif, body text is a plain sans, and "Baked with care" is the only script line.
 
-There is no logo file and no product-photo library. The pages are meant to look finished with type, spacing, and a few simple line icons. Optional images can be added later under `public/assets/`. The site does not require them, and it does not pretend to have a finished photo set.
+There is no logo file and no product-photo library. The pages are type, spacing, and warm paper. Optional images can be added later under `public/assets/`. The site does not require them, and it does not pretend to have a finished photo set.
 
 ## Run it on your computer
 
